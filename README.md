@@ -14,10 +14,10 @@ In this project, you build an app that let's you display a todo list from reduce
 
 ### Task 1: Project Set Up
 
-- [ ] Create a forked copy of this project.
+- [x] Create a forked copy of this project.
 - [ ] Add your team lead as collaborator on Github.
-- [ ] Clone your OWN version of the repository in your terminal.
-- [ ] CD into the project base directory `cd reducer-todo`.
+- [x] Clone your OWN version of the repository in your terminal.
+- [x] CD into the project base directory `cd reducer-todo`.
 - [ ] Create a new react app running `npx create-react-app todo --use-npm`.
 - [ ] CD into the react app directory `cd todo`.
 - [ ] Start up the app using `npm start`.
