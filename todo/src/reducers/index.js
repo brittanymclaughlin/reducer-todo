@@ -1,45 +1,40 @@
 export const initialState = [{
-    item: 'Learn about Redux',
+    task: 'Learn about Redux',
     completed: false,
     id: 4
   },
   {
-      item: 'Read a book',
+      task: 'Read a book',
       completed: false,
       id: 3
   },
   {
-      item: 'Learn more about React',
+      task: 'Learn more about React',
       completed:false,
       id: 1
   },
   {
-      item:'Call grandparents',
+      task:'Call grandparents',
       completed:false,
       id: 2
   }
 ]
-
+export const ADD_ITEM = "ADD_ITEM";
+export const MARK_COMPLETE = "MARK_COMPLETE";
+export const CLEAR_COMPLETED = "CLEAR_COMPLETED";
 
 export const todoReducer = (state, action) => {
-
     switch(action.type) {
-        case 'ADD_TODO':
-            return [...state, { item: action.payload, id:Date.now(), completed: false }]
+        case ADD_ITEM:
+            return [...state, action.payload]
 
-        case 'MARK_COMPLETE':
-            state.map(item => {
-                if (item.id === action.payload){
-                return item.completed = !item.completed;
-                }
-            })
-            return [...state]
+        case MARK_COMPLETE:
+            return[
+                ...state.map(item => action.payload === item.id ? {...item, completed: !item.completed} : item)
+            ];
 
-        case 'CLEAR_COMPLETE':
-            const newList = state.filter(item => {
-            return item.completed !== true
-            })
-            return [...newList]
+        case CLEAR_COMPLETED:
+            return[...state.filter(task => task.completed === false)];
         
         default:
             return state;
